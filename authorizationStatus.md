@@ -34,4 +34,13 @@ ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
        didFailWithError:(NSError *)error
        
 #4.判断用户是否有访问通讯录的权限
-- [ABAddressBook ABAddressBookGetAuthorizationStatus];
+- 首先,加入框架AddressBook.framework/ AddressBookUI.framework
+
+   - if (ABAddressBookGetAuthorizationStatus() !=kABAuthorizationStatusAuthorized)
+    {
+        //没有授权
+    }
+    else
+    {   
+      //已经授权
+    }
