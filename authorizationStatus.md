@@ -1,25 +1,25 @@
 #1.判断用户是否有权限访问相册
 
-- import <AssetsLibrary/AssetsLibrary.h>
-ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
-- if (author == kCLAuthorizationStatusRestricted || author == kCLAuthorizationStatusDenied)
+- import \<AssetsLibrary/AssetsLibrary.h\>
+- ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+- if (author == ALAuthorizationStatusRestricted || author == ALAuthorizationStatusDenied)
         {
            //无权限
         }
 
 - typedef enum {
-  -   kCLAuthorizationStatusNotDetermined = 0, // 用户尚未做出选择这个应用程序的问候
-    - kCLAuthorizationStatusRestricted,        // 此应用程序没有被授权访问的照片数据。可能是家长控制权限
-    - kCLAuthorizationStatusDenied,            // 用户已经明确否认了这一照片数据的应用程序访问
-   -  kCLAuthorizationStatusAuthorized         // 用户已经授权应用访问照片数据
-- } CLAuthorizationStatus;
+  -   ALAuthorizationStatusNotDetermined = 0, // 用户尚未做出选择这个应用程序的问候
+    - ALAuthorizationStatusRestricted,        // 此应用程序没有被授权访问的照片数据。可能是家长控制权限
+    - ALAuthorizationStatusDenied,            // 用户已经明确否认了这一照片数据的应用程序访问
+   -  ALAuthorizationStatusAuthorized         // 用户已经授权应用访问照片数据
+- } ALAuthorizationStatus;
 
 #2.判断用户是否有权限访问相机
 
 - iOS7之前都可以访问相机，iOS7之后访问相机有权限设置
 
-- import <AVFoundation/AVCaptureDevice.h>
-- import <AVFoundation/AVMediaFormat.h>
+- import \<AVFoundation/AVCaptureDevice.h\>
+- import \<AVFoundation/AVMediaFormat.h\>
 - AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
 - if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied)
         {
